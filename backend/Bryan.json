@@ -1,0 +1,226 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Api para CRUD de Bryan",
+    "description": "Se muestran los metodos y como hacer los diferentes Insert y Update",
+    "contact": {
+      "email": "you@your-company.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://virtserver.swaggerhub.com/ricaldone-d5d/Brayan/1.0.0",
+      "description": "SwaggerHub API Auto Mocking"
+    }
+  ],
+  "paths": {
+    "/Tasks": {
+      "get": {
+        "tags": [
+          "Tasks"
+        ],
+        "summary": "Select a Tasks",
+        "description": "Con este metodo puedes ver la tabla de Tasks",
+        "operationId": "get-Tasks",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Tasks"
+        ],
+        "summary": "Update a Tasks",
+        "description": "con este metodo se actualiza la tabla de Tasks",
+        "operationId": "put-Tasks",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tasks_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Tasks"
+        ],
+        "summary": "Insert a Tasks",
+        "description": "con este metodo se inserta en Tasks",
+        "operationId": "post-Tasks",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tasks_body_1"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Tasks"
+        ],
+        "summary": "Delete a Tasks",
+        "description": "con este metodo se elimina de la tabla de Tasks",
+        "operationId": "delete-Tasks",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "InventoryItem": {
+        "required": [
+          "id",
+          "manufacturer",
+          "name",
+          "releaseDate"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "example": "d290f1ee-6c54-4b01-90e6-d701748f0851"
+          },
+          "name": {
+            "type": "string",
+            "example": "Widget Adapter"
+          },
+          "releaseDate": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2016-08-29T09:12:33.001Z"
+          },
+          "manufacturer": {
+            "$ref": "#/components/schemas/Manufacturer"
+          }
+        }
+      },
+      "Manufacturer": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "ACME Corporation"
+          },
+          "homePage": {
+            "type": "string",
+            "format": "url",
+            "example": "https://www.acme-corp.com"
+          },
+          "phone": {
+            "type": "string",
+            "example": "408-867-5309"
+          }
+        }
+      },
+      "Tasks_body": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "5xvav24a2cvlq"
+            }
+          },
+          "description": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "ywhll968ybljk"
+            }
+          },
+          "completed": {
+            "type": "boolean",
+            "x-stoplight": {
+              "id": "os8e1mddxhv86"
+            }
+          }
+        }
+      },
+      "Tasks_body_1": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "hy58zgjdh17pi"
+            }
+          },
+          "description": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "s3xc9ptq7km5b"
+            }
+          },
+          "completed": {
+            "type": "boolean",
+            "x-stoplight": {
+              "id": "clzvxbela2atj"
+            }
+          }
+        }
+      }
+    }
+  }
+}
